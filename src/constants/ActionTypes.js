@@ -1,0 +1,5 @@
+export const ADD_TO_CART = 'ADD_TO_CART'
+export const REMOVE_FROM_CART = 'REMOVE_FROM_CART'
+export const DEL_FROM_CART ='DEL_FROM_CART'
+export const CHECKOUT = 'CHECK_OUT'
+export const CLEAR_CART = 'CLEAR_CART'

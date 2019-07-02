@@ -1,26 +1,32 @@
 import React from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Header from "./components/header"
+import {Layout} from 'antd'
+import Showcase from "./containers/showcase"
+import Cart from './containers/cart'
+
+const {Content,Sider} = Layout
+
+class App extends React.Component {
+
+  render() {
+    return (
+      <div className="App">
+        <Header/>
+        <Layout className="container" theme="light" style={{padding:'0'}}>
+          <Content style={{width:'50%'}}>
+            <Showcase></Showcase>
+          </Content>
+          <Sider theme="light" width={'30%'} >
+            <Cart/>
+          </Sider>
+        </Layout>
+      </div>
+    );
+  }
+
 }
 
 export default App;
