@@ -17,7 +17,7 @@ const user = (state=initialState,action) =>{
             return {
                 ...state,loggingIn:true,userInfo:{
                     status:"pendding",
-                    userUsers2fff
+                    user
                 }
             };
         
