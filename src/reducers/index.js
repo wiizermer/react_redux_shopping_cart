@@ -1,5 +1,10 @@
 import Items from '../constants/items';
 import * as ActionTypes from '../constants/ActionTypes';
+import {message} from 'antd'
+
+const warning = () => {
+    message.warning('該品項已無庫存');
+  };
 
 const initialState = {
     showcase: Items,
@@ -26,9 +31,11 @@ const showcaseReducer = (state, action,cartLeft) => {
 }
 const cartReducer = (state, action, cartOut,left) => {
     let cartOutStatus = cartOut || false;
+    let sinPrice;
+    let target;
     switch (action.type) {
         case ActionTypes.ADD_TO_CART:
-            let sinPrice = Items.filter(x => x.id === action.id)[0].price;
+            sinPrice = Items.filter(x => x.id === action.id)[0].price;
             let check = state.items.findIndex(x => x.id === action.id);
             if (check === -1) {
                 let img = Items.filter(x => x.id === action.id)[0].img;
@@ -43,7 +50,7 @@ const cartReducer = (state, action, cartOut,left) => {
                 }
             }
         case ActionTypes.REMOVE_FROM_CART:
-            let target = state.items.findIndex(x => x.id === action.id);
+            target = state.items.findIndex(x => x.id === action.id);
             sinPrice = Items.filter(x => x.id === action.id)[0].price;
             if (cartOutStatus) {
                 state.items.splice(target, 1);
@@ -59,6 +66,7 @@ const cartReducer = (state, action, cartOut,left) => {
         
         case ActionTypes.DEL_FROM_CART:
             target = state.items.findIndex(x => x.id === action.id);
+            sinPrice = Items.filter(x => x.id === action.id)[0].price;
             state.items.splice(target, 1);
             return {
                 ...state, totalCount: state.totalCount - left, totalPrice: parseFloat((state.totalPrice - (sinPrice*left)).toFixed(1)), items: state.items
@@ -86,7 +94,7 @@ const cart = (state = initialState, action) => {
                     showcase: showcaseReducer(state.showcase, action)
                 }
             } else {
-                alert("inventory out")
+                warning();
                 return state
             }
         case ActionTypes.REMOVE_FROM_CART:

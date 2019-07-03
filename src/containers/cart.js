@@ -4,7 +4,8 @@ import { bindActionCreators } from "redux";
 import * as defaultActions from "../actions";
 import { connect } from 'react-redux';
 
-class Showcase extends React.Component {
+class Cart extends React.Component {
+    
     render() {
         const IconText = ({ type, text }) => (
             <span>
@@ -70,4 +71,4 @@ const mapDispatchToProps = dispatch => ({
     actions: bindActionCreators(defaultActions, dispatch),
     dispatch
 });
-export default connect(mapStateToProps, mapDispatchToProps)(Showcase);
+export default connect(mapStateToProps, mapDispatchToProps)(Cart);

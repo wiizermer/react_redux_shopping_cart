@@ -1,5 +1,6 @@
 import * as ActionTypes from '../constants/ActionTypes';
 
+/// cart
 export const addToCart = (id) =>{
     return {
         type: ActionTypes.ADD_TO_CART,
@@ -28,4 +29,12 @@ export const clearCart = (cart) =>{
         type:ActionTypes.CLEAR_CART,
         cart
     }
+}
+
+///user
+export const logginRequest =(user)=>{
+    return {
+        type:ActionTypes.LOGGIN_REQUEST,
+        user
+    } 
 }

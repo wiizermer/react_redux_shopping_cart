@@ -1,5 +1,5 @@
 import React from 'react';
-import { Layout,  Row, Col } from 'antd';
+import { Layout, Row, Col } from 'antd';
 import { Button } from 'antd';
 
 
@@ -7,7 +7,7 @@ import { Button } from 'antd';
 const { Header } = Layout;
 
 class Head extends React.Component {
-
+    
     render() {
         return (
             <Header className="header container" theme="light" style={{ background: '#fff', borderBottom: '1px solid #e8e8e8', boxShadow: '0 2px -1px #e8e8e8' }}>
